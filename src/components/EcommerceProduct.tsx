@@ -38,10 +38,11 @@ interface ProductItems {
     count: number;
   };
 }
+        const rozorpayKey = import.meta.env.VITE_RAZORPAY_KEY;
+
 
 export default function EcommerceProduct() {
   const { error, isLoading, Razorpay } = useRazorpay();
-
   const [cart, setCart] = useState<CartItem[]>([]);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [products, setProducts] = useState<ProductItems[]>([]);
@@ -101,15 +102,18 @@ export default function EcommerceProduct() {
     (sum, item) => sum + item.price * item.quantity,
     0
   );
+  
+ 
 
   const initiatePayment = () => {
     const options: RazorpayOrderOptions = {
-      key: "rzp_test_9ANlms8hzogOIb",
-      amount: totalAmount * 100,
+      key: rozorpayKey,
+      amount: Number(totalAmount * 100),
       currency: "INR",
-      name: "Your Store",
+      name: "Neo Store",
       description: "Payment for your order",
       handler: function (response: unknown) { 
+        console.log(response);
         setPaymentSuccess(true);
         setCart([]);
         setShowCart(false);
@@ -127,6 +131,14 @@ export default function EcommerceProduct() {
     razorpayInstance.open();
   };
 
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
   return (
     <div className="min-h-screen bg-gray-50 p-4 md:p-8 relative">
       {/* Cart Icon Top-Right */}

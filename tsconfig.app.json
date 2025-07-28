@@ -22,7 +22,6 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
-    "include": ["src"],
     // other
     "baseUrl": ".",
     "paths": {
@@ -30,5 +29,7 @@
         "./src/*"
       ]
     }
-}
+},
+
+    "include": ["src"],
 }
