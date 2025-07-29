@@ -108,7 +108,7 @@ export default function EcommerceProduct() {
   const initiatePayment = () => {
     const options: RazorpayOrderOptions = {
       key: rozorpayKey,
-      amount: Number(totalAmount * 100),
+      amount: totalAmount * 100,
       currency: "INR",
       name: "Neo Store",
       description: "Payment for your order",
@@ -179,7 +179,7 @@ export default function EcommerceProduct() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-2xl font-bold">
-                    ${product.price.toFixed(2)}
+                  INR {product.price.toFixed(2)}
                   </span>
                   <Button onClick={() => addToCart(product)}>
                     <ShoppingCart className="mr-2 h-4 w-4" />
@@ -230,7 +230,7 @@ export default function EcommerceProduct() {
                         <div>
                           <h3 className="font-medium text-sm">{item.name}</h3>
                           <p className="text-sm text-gray-600">
-                            ${item.price.toFixed(2)}
+                            INR {item.price.toFixed(2)}
                           </p>
                         </div>
                       </div>
@@ -270,7 +270,7 @@ export default function EcommerceProduct() {
             <CardFooter className="flex flex-col gap-4">
               <div className="flex justify-between w-full font-bold text-lg">
                 <span>Total:</span>
-                <span>${totalAmount.toFixed(2)}</span>
+                <span>INR {totalAmount.toFixed(2)}</span>
               </div>
               {paymentSuccess ? (
                 <div className="flex items-center gap-2 text-green-600">
