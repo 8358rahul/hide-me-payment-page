@@ -99,7 +99,7 @@ export default function EcommerceProduct() {
   };
 
   const totalAmount = cart.reduce(
-    (sum, item) => sum + item.price * item.quantity,
+    (sum, item) => Number(sum + item.price * item.quantity),
     0
   );
   
@@ -108,7 +108,7 @@ export default function EcommerceProduct() {
   const initiatePayment = () => {
     const options: RazorpayOrderOptions = {
       key: rozorpayKey,
-      amount: totalAmount * 100,
+      amount:totalAmount * 100,
       currency: "INR",
       name: "Neo Store",
       description: "Payment for your order",
