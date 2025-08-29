@@ -13,7 +13,7 @@ function App() {
       </p>
  
       <a
-        href="https://rzp.io/rzp/HjwbGdd0"
+        href="#"
         target="_blank"
         rel="noopener noreferrer"
         className="bg-purple-700 text-white font-semibold px-6 py-3 rounded-xl shadow-md hover:bg-purple-800 transition"
@@ -35,7 +35,7 @@ function App() {
 
       <footer className="mt-12 text-sm text-gray-500">
         © {new Date().getFullYear()} AI Interview Assistant | Contact:
-        rahulshanisare@gmail.com
+        rahulshanisare91@gmail.com
       </footer>
     </div>
   );
